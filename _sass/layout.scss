@@ -253,3 +253,15 @@ footer {
   text-align: center;
   padding: 0.6667em 0;
 }
+
+#nav footer #quoteText {
+  padding: 10px;
+}
+
+#nav footer #quoteAuthor {
+  float: right;
+  font-style: italic;
+  font-weight: bold;
+  padding-right: 10px;
+}
+

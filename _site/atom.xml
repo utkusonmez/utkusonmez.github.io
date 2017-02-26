@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Utku Sönmez</title>
- <link href="http://localhost:4000/atom.xml" rel="self"/>
- <id>http://localhost:4000</id>
- <updated>2017-02-15T17:18:35+02:00</updated>
+ <link href="http://www.utkusonmez.com//atom.xml" rel="self"/>
+ <id>http://www.utkusonmez.com/</id>
+ <updated>2017-02-26T14:08:08+03:00</updated>
  <author>
    <name>Utku Sönmez</name>
    <uri>http://www.utkusonmez.com/</uri>
@@ -14,101 +14,47 @@
  
 
  <entry>
-   <title>Typograhy example</title>
-   <link href="http://localhost:4000/typography"/>
-   <id>http://localhost:4000/typography</id>
-   <updated>2015-03-19T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/emerald/img/img-test.png&quot; alt=&quot;Test&quot; title=&quot;Test&quot; /&gt; Lorem ipsum dolor sit amet, &lt;a href=&quot;http://www.example.com&quot;&gt;consectetur adipisicing&lt;/a&gt; elit. Id, aliquam magni et officiis nemo nihil aliquid placeat alias. Eum voluptates ducimus, nobis ex illum laboriosam quidem corrupti impedit ratione in voluptatum amet beatae facilis temporibus voluptate praesentium voluptatibus! At ab, iusto error amet eveniet...</content>
+   <title>Adding Disqus to Jekyll</title>
+   <link href="http://www.utkusonmez.com//add-disqus-to-jekyll"/>
+   <id>http://www.utkusonmez.com//add-disqus-to-jekyll</id>
+   <updated>2017-02-26T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;I was thinking to write a blog post about adding disqus to jekyll, but i found this blog post -&amp;gt; &lt;a href=&quot;http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages&quot;&gt;perfectly documented blog&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Thank you!&lt;/p&gt;
+</content>
  </entry>
 
  
 
  <entry>
-   <title>Code Syntax</title>
-   <link href="http://localhost:4000/code-syntax"/>
-   <id>http://localhost:4000/code-syntax</id>
-   <updated>2015-03-01T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;To insert highlight code inside of a post, it’s enough to use some specific tags, has directly described into the &lt;a href=&quot;http://jekyllrb.com/docs/templates/#code-snippet-highlighting&quot;&gt;Jekyll documentation&lt;/a&gt;. In this way the code will be included into a &lt;code class=&quot;highlighter-rouge&quot;&gt;.highlight&lt;/code&gt; CSS class and will be highlight according to the &lt;a href=&quot;https://github.com/mojombo/tpw/blob/master/css/syntax.css&quot;&gt;syntax.scss&lt;/a&gt; file. This is the...</content>
+   <title>Blog with Jekyll</title>
+   <link href="http://www.utkusonmez.com//blog-with-jekyll"/>
+   <id>http://www.utkusonmez.com//blog-with-jekyll</id>
+   <updated>2017-02-25T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;First of all, we should define what jekyll is and what it does. It is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”.&lt;/p&gt;...</content>
  </entry>
 
  
 
  <entry>
-   <title>Example 8</title>
-   <link href="http://localhost:4000/example-8"/>
-   <id>http://localhost:4000/example-8</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
+   <title>Publish static site on github pages</title>
+   <link href="http://www.utkusonmez.com//publish-static-site-on-github-pages"/>
+   <id>http://www.utkusonmez.com//publish-static-site-on-github-pages</id>
+   <updated>2017-02-23T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.&lt;/p&gt; &lt;h3 id=&quot;deploy-your-site&quot;&gt;Deploy your site&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;...</content>
  </entry>
 
  
 
  <entry>
-   <title>Example 7</title>
-   <link href="http://localhost:4000/example-7"/>
-   <id>http://localhost:4000/example-7</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
+   <title>Hello blog!</title>
+   <link href="http://www.utkusonmez.com//hello-blog"/>
+   <id>http://www.utkusonmez.com//hello-blog</id>
+   <updated>2017-02-22T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;This is my first entry, i will try to publish my experinces about coding and life.&lt;/p&gt;
 
- 
-
- <entry>
-   <title>Example 6</title>
-   <link href="http://localhost:4000/example-6"/>
-   <id>http://localhost:4000/example-6</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Example 5</title>
-   <link href="http://localhost:4000/example-5"/>
-   <id>http://localhost:4000/example-5</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Example 4</title>
-   <link href="http://localhost:4000/example-4"/>
-   <id>http://localhost:4000/example-4</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Example 3</title>
-   <link href="http://localhost:4000/example-3"/>
-   <id>http://localhost:4000/example-3</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Example 2</title>
-   <link href="http://localhost:4000/example-2"/>
-   <id>http://localhost:4000/example-2</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
- </entry>
-
- 
-
- <entry>
-   <title>Example 1</title>
-   <link href="http://localhost:4000/example-1"/>
-   <id>http://localhost:4000/example-1</id>
-   <updated>2015-02-15T00:00:00+02:00</updated>
-   <content type="html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate est optio ut impedit architecto iusto tempore rem, voluptates sed magni nisi corrupti praesentium voluptatum harum expedita temporibus ipsam, odit ad distinctio! Labore cupiditate distinctio facere earum, iste! Reiciendis possimus voluptatum explicabo corporis ab. Ex adipisci laudantium mollitia vel optio deserunt...</content>
+&lt;p&gt;Enjoy!!&lt;/p&gt;
+</content>
  </entry>
 
  

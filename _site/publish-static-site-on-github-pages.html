@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Publish static site on github pages</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic%7CSignika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/about" title="About Emerald">About Emerald</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://twitter.com/utkusnmz" target="_blank">@utkusnmz</a>
+<a href="https://github.com/utkusonmez" target="_blank">github</a>
+<a href="https://stackoverflow.com/users/1235354/utkusonmez" target="_blank">stackoverflow</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span id="quoteText" style="display: none;">
+
+	</span>
+
+	<span id="quoteAuthor" style="display: none;">
+
+	</span>
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<img src="/img/utku.png" alt="me">
+	  <h1> Utku Sönmez </h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Publish static site on github pages</h2>		
+	<time datetime="2017-02-23T00:00:00+03:00" class="by-line">23 Feb 2017</time>
+	<div class="content">
+
+		<p>You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.</p>
+
+<h3 id="deploy-your-site">Deploy your site</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre>git clone https://github.com/<span class="sh">&lt;&lt;username&gt;&gt;/&lt;&lt;username&gt;&gt;.github.io
+cd username.github.io
+echo "Welcome to my static site" &gt; index.html
+git add --all
+git commit -m "Initial commit"
+</span><span class="err">git push -u origin master</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>go to ‘«yourgithubusername».github.io’ and check your site.</p>
+
+<h3 id="also-serve-your-custom-domain">Also serve your custom domain</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre><span class="nb">echo</span> <span class="s2">"yourcustomdomain.com"</span> &gt; CNAME
+git add .
+git commit -m <span class="s2">"CNAME added"</span>
+git push<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>go to site, which you bought your domain, add a CNAME record like i mention below.</p>
+
+<p>CNAME	www	«yourgithubusername».github.io	1 hour</p>
+
+<p>Now you can check yourcustomdomain.com, it will be served under github pages.</p>
+
+		
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//utkusonmez-com.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2017 - Utku Sönmez</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+<script src="/js/quotes.js"></script>	
+
+
+	</div>
+</body>
+</html>

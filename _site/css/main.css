@@ -25,11 +25,11 @@ html {
 
 /*- Link -*/
 a {
-  color: #008A3C;
+  color: #611919;
   text-decoration: none;
   font-weight: 700; }
   a:hover, a:focus {
-    color: #007131; }
+    color: #4d1414; }
 
 /*- Typography -*/
 body {
@@ -144,14 +144,14 @@ blockquote {
     #nav a, #nav-left a {
       font-size: 1em; } }
   #nav a:hover, #nav-left a:hover {
-    background-color: #00a447; }
+    background-color: #751e1e; }
 #nav span, #nav-left span {
   font-weight: 200; }
 
 #nav {
   width: 14rem;
   position: fixed;
-  background-color: #008A3C;
+  background-color: #611919;
   top: 0;
   bottom: 0;
   right: -14rem;
@@ -168,7 +168,7 @@ blockquote {
 #nav-left {
   width: 14rem;
   position: fixed;
-  background-color: #008A3C;
+  background-color: #611919;
   top: 0;
   bottom: 0;
   left: -14rem;
@@ -374,10 +374,10 @@ code {
     background-color: #f0f0f0;
     color: #222222; }
   .pagination a:hover {
-    background-color: #00a447; }
+    background-color: #751e1e; }
 
 .page-item {
-  background-color: #008A3C;
+  background-color: #611919;
   color: #FDFDFD;
   padding: 4px 8px;
   font-weight: 400;
@@ -389,10 +389,19 @@ code {
 
 /* Footer */
 footer {
-  background-color: #008A3C;
+  background-color: #611919;
   color: #FDFDFD;
   text-align: center;
   padding: 0.6667em 0; }
+
+#nav footer #quoteText {
+  padding: 10px; }
+
+#nav footer #quoteAuthor {
+  float: right;
+  font-style: italic;
+  font-weight: bold;
+  padding-right: 10px; }
 
 /*
  * A Github stylesheet to highlight code snippet
