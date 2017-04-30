@@ -95,63 +95,110 @@
 	<time datetime="2017-04-29T00:00:00+03:00" class="by-line">29 Apr 2017</time>
 	<div class="content">
 
-		<h3 id="ports-on-linux">PORTS ON LINUX</h3>
+		<p>In Linux, you have to give minimum access per operation and disable unneccessary access for users. This posts is about how ports are enabled or disabled due to security.</p>
 
-<p>Default port numbers for common services on a server
-http  : 80
-https : 443
-ssh   : 22
-pop3  : 110
-ftp   : 21
-smtp  : 25</p>
+<hr />
+
+<h3 id="ports-on-linux">PORTS ON LINUX</h3>
+
+<p>Default port numbers for common services on a server</p>
+<ol>
+  <li>http  : 80</li>
+  <li>https : 443</li>
+  <li>ssh   : 22</li>
+  <li>pop3  : 110</li>
+  <li>ftp   : 21</li>
+  <li>smtp  : 25</li>
+</ol>
 
 <h3 id="enable-ports">ENABLE PORTS</h3>
-<p>(if ufw not installed, ‘sudo apt-get install ufw’)
-$ sudo ufw status
-Status: inactive 
-(You block everything comming in)</p>
+<p>(if ufw not installed, ‘sudo apt-get install ufw’)</p>
 
-<p>Deny incoming
-$ sudo ufw default deny incoming
-Default incoming policy changed to ‘deny’
-(be sure to update your rules accordingly)</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>sudo ufw status
+Status: inactive <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>Allow everything outgoing
-$ sudo ufw default allow outgoing
-Default outgoing policy changed to ‘allow’
-(be sure to update your rules accordingly)</p>
+<p>Deny incoming (You block everything comming in)</p>
 
-<p>Check status again
-$ sudo ufw status
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo ufw default deny incoming
+Default incoming policy changed to <span class="s1">'deny'</span>
+<span class="o">(</span>be sure to update your rules accordingly<span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Allow everything outgoing</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo ufw default allow outgoing
+Default outgoing policy changed to <span class="s1">'allow'</span>
+<span class="o">(</span>be sure to update your rules accordingly<span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Check status again</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo ufw status
 Status: inactive
-(You block everything comming in)
-If you activate it now, your server will be dead in water, inaccessible to us(including ssh)</p>
+<span class="o">(</span>You block everything comming <span class="k">in</span><span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>$ sudo ufw allow ssh
+<p>If you activate ufw now, your server will be dead in water, inaccessible to us(including ssh)</p>
+
+<p>Allow ssh</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo ufw allow ssh
 Rules updated
-Rules updated (v6)
-(allow ssh)</p>
+Rules updated <span class="o">(</span>v6<span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>$ sudo ufw allow www
+<p>Allow :80 port. This default http server port.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo ufw allow www
 Rules updated
-Rules updated (v6)
-(allow ports for simple web server)</p>
+Rules updated <span class="o">(</span>v6<span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>$ sudo ufw enable 
-Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+<p>Enable ufw</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>sudo ufw <span class="nb">enable 
+</span>Command may disrupt existing ssh connections. Proceed with operation <span class="o">(</span>y|n<span class="o">)</span>? y
 Firewall is active and enabled on system startup
-(enable ufw for port managing)</p>
+<span class="o">(</span><span class="nb">enable </span>ufw <span class="k">for </span>port managing<span class="o">)</span> <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
-<p>$ sudo ufw status
-Status: active</p>
+<p>Check ufw status and permissions, maybe we did something wrong.</p>
 
-<p>To                         Action      From
-–                         ——      —-
-22                         ALLOW       Anywhere                <br />
-80/tcp                     ALLOW       Anywhere                <br />
-22 (v6)                    ALLOW       Anywhere (v6)           <br />
-80/tcp (v6)                ALLOW       Anywhere (v6)           <br />
-(check status and list your allowed ports)</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10</pre></td><td class="code"><pre>sudo ufw status
+Status: active
+
+To                         Action      From
+--                         ------      ----
+22                         ALLOW       Anywhere                  
+80/tcp                     ALLOW       Anywhere                  
+22 <span class="o">(</span>v6<span class="o">)</span>                    ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>             
+80/tcp <span class="o">(</span>v6<span class="o">)</span>                ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>             
+<span class="o">(</span>check status and list your allowed ports<span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
 
 
 		

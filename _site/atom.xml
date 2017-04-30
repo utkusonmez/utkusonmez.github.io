@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Utku Sönmez</title>
- <link href="http://www.utkusonmez.com//atom.xml" rel="self"/>
- <id>http://www.utkusonmez.com/</id>
- <updated>2017-04-30T11:39:16+03:00</updated>
+ <link href="http://localhost:4000/atom.xml" rel="self"/>
+ <id>http://localhost:4000</id>
+ <updated>2017-04-30T11:45:20+03:00</updated>
  <author>
    <name>Utku Sönmez</name>
    <uri>http://www.utkusonmez.com/</uri>
@@ -15,18 +15,18 @@
 
  <entry>
    <title>Prepare ports on Linux Server</title>
-   <link href="http://www.utkusonmez.com//prepare-ports-on-linux-server"/>
-   <id>http://www.utkusonmez.com//prepare-ports-on-linux-server</id>
+   <link href="http://localhost:4000/prepare-ports-on-linux-server"/>
+   <id>http://localhost:4000/prepare-ports-on-linux-server</id>
    <updated>2017-04-29T00:00:00+03:00</updated>
-   <content type="html">&lt;h3 id=&quot;ports-on-linux&quot;&gt;PORTS ON LINUX&lt;/h3&gt; &lt;p&gt;Default port numbers for common services on a server http : 80 https : 443 ssh : 22 pop3 : 110 ftp : 21 smtp : 25&lt;/p&gt; &lt;h3 id=&quot;enable-ports&quot;&gt;ENABLE PORTS&lt;/h3&gt; &lt;p&gt;(if ufw not installed, ‘sudo apt-get install ufw’) $ sudo ufw status Status: inactive (You block...</content>
+   <content type="html">&lt;p&gt;In Linux, you have to give minimum access per operation and disable unneccessary access for users. This posts is about how ports are enabled or disabled due to security.&lt;/p&gt; &lt;hr /&gt; &lt;h3 id=&quot;ports-on-linux&quot;&gt;PORTS ON LINUX&lt;/h3&gt; &lt;p&gt;Default port numbers for common services on a server&lt;/p&gt; &lt;ol&gt; &lt;li&gt;http : 80&lt;/li&gt; &lt;li&gt;https :...</content>
  </entry>
 
  
 
  <entry>
    <title>Understanding Linux File Permissions</title>
-   <link href="http://www.utkusonmez.com//understanding-linux-file-permissions"/>
-   <id>http://www.utkusonmez.com//understanding-linux-file-permissions</id>
+   <link href="http://localhost:4000/understanding-linux-file-permissions"/>
+   <id>http://localhost:4000/understanding-linux-file-permissions</id>
    <updated>2017-04-28T00:00:00+03:00</updated>
    <content type="html">&lt;p&gt;To make your server more securely, you should give minimum rights to each user. In this blog, we try to tell how basic file permissions works on linux server and how octal permissions calculated.&lt;/p&gt; &lt;hr /&gt; &lt;h3 id=&quot;linux-file-permissions&quot;&gt;LINUX FILE PERMISSIONS&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre...</content>
  </entry>
@@ -35,8 +35,8 @@
 
  <entry>
    <title>Basic Linux Server Security Setup (Ubuntu 16.04 trusty)</title>
-   <link href="http://www.utkusonmez.com//basic-linux-server-setup"/>
-   <id>http://www.utkusonmez.com//basic-linux-server-setup</id>
+   <link href="http://localhost:4000/basic-linux-server-setup"/>
+   <id>http://localhost:4000/basic-linux-server-setup</id>
    <updated>2017-04-24T00:00:00+03:00</updated>
    <content type="html">&lt;p&gt;When you first create a new Ubuntu 16.04 server, there are a few configuration steps that you should take early on as part of the basic setup. This will increase the security and usability of your server and will give you a solid foundation for subsequent actions.&lt;/p&gt; &lt;hr /&gt; &lt;h3...</content>
  </entry>
@@ -45,8 +45,8 @@
 
  <entry>
    <title>Adding Disqus to Jekyll</title>
-   <link href="http://www.utkusonmez.com//add-disqus-to-jekyll"/>
-   <id>http://www.utkusonmez.com//add-disqus-to-jekyll</id>
+   <link href="http://localhost:4000/add-disqus-to-jekyll"/>
+   <id>http://localhost:4000/add-disqus-to-jekyll</id>
    <updated>2017-02-26T00:00:00+03:00</updated>
    <content type="html">&lt;p&gt;I was thinking to write a blog post about adding disqus to jekyll, but i found this blog post -&amp;gt; &lt;a href=&quot;http://www.perfectlyrandom.org/2014/06/29/adding-disqus-to-your-jekyll-powered-github-pages&quot;&gt;perfectly documented blog&lt;/a&gt;.&lt;/p&gt;
 
@@ -58,8 +58,8 @@
 
  <entry>
    <title>Blog with Jekyll</title>
-   <link href="http://www.utkusonmez.com//blog-with-jekyll"/>
-   <id>http://www.utkusonmez.com//blog-with-jekyll</id>
+   <link href="http://localhost:4000/blog-with-jekyll"/>
+   <id>http://localhost:4000/blog-with-jekyll</id>
    <updated>2017-02-25T00:00:00+03:00</updated>
    <content type="html">&lt;p&gt;First of all, we should define what jekyll is and what it does. It is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”.&lt;/p&gt;...</content>
  </entry>
@@ -68,8 +68,8 @@
 
  <entry>
    <title>Publish static site on github pages</title>
-   <link href="http://www.utkusonmez.com//publish-static-site-on-github-pages"/>
-   <id>http://www.utkusonmez.com//publish-static-site-on-github-pages</id>
+   <link href="http://localhost:4000/publish-static-site-on-github-pages"/>
+   <id>http://localhost:4000/publish-static-site-on-github-pages</id>
    <updated>2017-02-23T00:00:00+03:00</updated>
    <content type="html">&lt;p&gt;You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.&lt;/p&gt; &lt;h3 id=&quot;deploy-your-site&quot;&gt;Deploy your site&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;...</content>
  </entry>
@@ -78,8 +78,8 @@
 
  <entry>
    <title>Hello blog!</title>
-   <link href="http://www.utkusonmez.com//hello-blog"/>
-   <id>http://www.utkusonmez.com//hello-blog</id>
+   <link href="http://localhost:4000/hello-blog"/>
+   <id>http://localhost:4000/hello-blog</id>
    <updated>2017-02-22T00:00:00+03:00</updated>
    <content type="html">&lt;p&gt;This is my first entry, i will try to publish my experinces about coding and life.&lt;/p&gt;
 
