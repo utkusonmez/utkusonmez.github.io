@@ -4,12 +4,42 @@
  <title>Utku Sönmez</title>
  <link href="http://www.utkusonmez.com//atom.xml" rel="self"/>
  <id>http://www.utkusonmez.com/</id>
- <updated>2017-02-27T19:55:51+03:00</updated>
+ <updated>2017-04-30T11:39:16+03:00</updated>
  <author>
    <name>Utku Sönmez</name>
    <uri>http://www.utkusonmez.com/</uri>
    <email>utkusnmz@gmail.com</email>
  </author>
+
+ 
+
+ <entry>
+   <title>Prepare ports on Linux Server</title>
+   <link href="http://www.utkusonmez.com//prepare-ports-on-linux-server"/>
+   <id>http://www.utkusonmez.com//prepare-ports-on-linux-server</id>
+   <updated>2017-04-29T00:00:00+03:00</updated>
+   <content type="html">&lt;h3 id=&quot;ports-on-linux&quot;&gt;PORTS ON LINUX&lt;/h3&gt; &lt;p&gt;Default port numbers for common services on a server http : 80 https : 443 ssh : 22 pop3 : 110 ftp : 21 smtp : 25&lt;/p&gt; &lt;h3 id=&quot;enable-ports&quot;&gt;ENABLE PORTS&lt;/h3&gt; &lt;p&gt;(if ufw not installed, ‘sudo apt-get install ufw’) $ sudo ufw status Status: inactive (You block...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Understanding Linux File Permissions</title>
+   <link href="http://www.utkusonmez.com//understanding-linux-file-permissions"/>
+   <id>http://www.utkusonmez.com//understanding-linux-file-permissions</id>
+   <updated>2017-04-28T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;To make your server more securely, you should give minimum rights to each user. In this blog, we try to tell how basic file permissions works on linux server and how octal permissions calculated.&lt;/p&gt; &lt;hr /&gt; &lt;h3 id=&quot;linux-file-permissions&quot;&gt;LINUX FILE PERMISSIONS&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre...</content>
+ </entry>
+
+ 
+
+ <entry>
+   <title>Basic Linux Server Security Setup (Ubuntu 16.04 trusty)</title>
+   <link href="http://www.utkusonmez.com//basic-linux-server-setup"/>
+   <id>http://www.utkusonmez.com//basic-linux-server-setup</id>
+   <updated>2017-04-24T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;When you first create a new Ubuntu 16.04 server, there are a few configuration steps that you should take early on as part of the basic setup. This will increase the security and usability of your server and will give you a solid foundation for subsequent actions.&lt;/p&gt; &lt;hr /&gt; &lt;h3...</content>
+ </entry>
 
  
 

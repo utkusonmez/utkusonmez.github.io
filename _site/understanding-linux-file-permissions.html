@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Understanding Linux File Permissions</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic%7CSignika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+	
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/about" title="About me">About me</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://twitter.com/utkusnmz" target="_blank">@utkusnmz</a>
+<a href="https://www.linkedin.com/in/utkusonmez/" target="_blank">linkedin</a>
+<a href="https://github.com/utkusonmez" target="_blank">github</a>
+<a href="https://stackoverflow.com/users/1235354/utkusonmez" target="_blank">stackoverflow</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span id="quoteText" style="display: none;">
+
+	</span>
+
+	<span id="quoteAuthor" style="display: none;">
+
+	</span>
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<img src="/img/utku.png" alt="me">
+	  <h1> Utku Sönmez </h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Understanding Linux File Permissions</h2>		
+	<time datetime="2017-04-28T00:00:00+03:00" class="by-line">28 Apr 2017</time>
+	<div class="content">
+
+		<p>To make your server more securely, you should give minimum rights to each user. In this blog, we try to tell how basic file permissions works on linux server and how octal permissions calculated.</p>
+
+<hr />
+
+<h3 id="linux-file-permissions">LINUX FILE PERMISSIONS</h3>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13</pre></td><td class="code"><pre><span class="gp">utku@scw:~$ </span>ls -al 
+total 48
+drwxr-xr-x 6 utku utku 4096 Apr 29 09:54 .
+drwxr-xr-x 3 root root 4096 Apr 23 20:05 ..
+-rw------- 1 utku utku  476 Apr 23 20:55 .bash_history
+-rw-r--r-- 1 utku utku  220 Apr 23 20:05 .bash_logout
+-rw-r--r-- 1 utku utku 3771 Apr 23 20:05 .bashrc
+drwx------ 2 utku utku 4096 Apr 23 20:06 .cache
+-rw------- 1 utku utku   43 Apr 23 20:21 .lesshst
+drwxrwxr-x 2 utku utku 4096 Apr 29 09:54 linux
+drwxrwxr-x 2 utku utku 4096 Apr 29 09:54 .nano
+-rw-r--r-- 1 utku utku  655 Apr 23 20:05 .profile
+drwx------ 2 utku utku 4096 Apr 23 20:54 .ssh<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>(-) rw-r–r– (let’s handle one of them)<br />
+(d) rwxrwxr-x</p>
+
+<p>first letter means directory or file. d:directory -:file</p>
+
+<p>We can seperate this file permission string to four groups:
+(-) (rw-) (r–) (r–)</p>
+
+<ul>
+  <li>rw-     r–     r–
+directory or file  owner   group  everyone</li>
+</ul>
+
+<p>permissions  owner group        <br />
+drwxr-xr-x 3 root  root 4096 Apr 23 20:05 ..
+-rw-r–r– 1 utku  utku  655 Apr 23 20:05 .profile</p>
+
+<h3 id="octal-permissions">Octal Permissions</h3>
+
+<p>-rw-r–r– is equal to ‘644’ in octal permissions</p>
+
+<p>r = 4   w = 2   x = 1  - = 0</p>
+
+<p>rw- = 6
+r– = 4
+r– = 4</p>
+
+<p>-rwxrwxrwx  = 777
+drwxr-xr-x  = 755
+-rw——-  = 600</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>ls -al ~
+...
+-rw------- 1 utku utku  476 Apr 23 20:55 .bash_history
+...<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>This file’s owner and group are named ‘utku’.</p>
+
+<p>If we change group of file to ‘root’, utku user can still read file. Because owner has read access (rw-)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>sudo chgrp root .bash_history
+cat .bash_history<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>But if we change owner of file to ‘root’, utku user cannot read that file.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo chown root .bash_history
+cat .bash_history 
+cat: .bash_history: Permission denied.<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>(dont forget to revert owner and group back)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="gp">$ </span>sudo chgrp utku .bash_history
+<span class="gp">$ </span>sudo chown utku .bash_history<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+
+		
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//utkusonmez-com.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2017 - Utku Sönmez</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+<script src="/js/quotes.js"></script>	
+
+
+	</div>
+</body>
+</html>

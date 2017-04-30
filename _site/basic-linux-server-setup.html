@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Basic Linux Server Security Setup (Ubuntu 16.04 trusty)</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic%7CSignika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+	
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/about" title="About me">About me</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://twitter.com/utkusnmz" target="_blank">@utkusnmz</a>
+<a href="https://www.linkedin.com/in/utkusonmez/" target="_blank">linkedin</a>
+<a href="https://github.com/utkusonmez" target="_blank">github</a>
+<a href="https://stackoverflow.com/users/1235354/utkusonmez" target="_blank">stackoverflow</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span id="quoteText" style="display: none;">
+
+	</span>
+
+	<span id="quoteAuthor" style="display: none;">
+
+	</span>
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<img src="/img/utku.png" alt="me">
+	  <h1> Utku Sönmez </h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Basic Linux Server Security Setup (Ubuntu 16.04 trusty)</h2>		
+	<time datetime="2017-04-24T00:00:00+03:00" class="by-line">24 Apr 2017</time>
+	<div class="content">
+
+		<p>When you first create a new Ubuntu 16.04 server, there are a few configuration steps that you should take early on as part of the basic setup. This will increase the security and usability of your server and will give you a solid foundation for subsequent actions.</p>
+
+<hr />
+
+<h3 id="ssh-to-server-as-root-user">SSH TO SERVER AS ROOT USER</h3>
+<p>Connect to your server by using ssh or user/password</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>ssh root@X.Y.Z.Q<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="update">UPDATE</h3>
+<p>Always try to install latest updates on your server, because</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre>sudo apt-get update
+sudo apt-get upgrade<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="add-user-named-user1">ADD USER NAMED user1</h3>
+<p>fill password and information about user</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo adduser user1<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="check-you-added-your-user-successfully">CHECK YOU ADDED YOUR USER SUCCESSFULLY</h3>
+<p>exit and login as user1</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2</pre></td><td class="code"><pre><span class="nb">exit
+</span>ssh user1@X.Y.Z.Q <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="check-your-users-sudo-rights">CHECK YOUR USER’S SUDO RIGHTS</h3>
+<p>There will be a privilege problem and file will not be shown.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>sudo cat /etc/passwd<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>### GIVE SUDO RIGHTS
+Give sudo rights to your user</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4
+5
+6</pre></td><td class="code"><pre>ssh root@X.Y.Z.Q
+sudo nano /etc/sudoers.d/user1
+  user1 <span class="nv">ALL</span><span class="o">=(</span>ALL<span class="o">)</span> NOPASSWD:ALL
+<span class="nb">exit 
+</span>ssh user1@X.Y.Z.Q
+sudo cat /etc/passwd<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="generate-ssh-key-to-be-more-secure">GENERATE SSH KEY TO BE MORE SECURE</h3>
+<p>Run this commands on your local machine for generating ssh key.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>ssh-keygen -t rsa -b 4096 -C <span class="s2">"user1@mail.com"</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Enter a passphrase to save your keys from other people
+This command will generate two files -&gt;  public and private keys.</p>
+
+<p>Copy public key on mac</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>pbcopy &lt; ~/.ssh/id_rsa.pub<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>or copy public key on linux</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1</pre></td><td class="code"><pre>cat ~/.ssh/id_rsa.pub <span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Now connect to your server as user1</p>
+
+<p>Paste your public key which you copied from local computer (pbcopy &lt; ~/.ssh/id_rsa.pub)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>ssh user1@X.Y.Z.Q
+mkdir .ssh
+touch .ssh/authorized_keys
+vi .ssh/authorized_keys<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>You will be asked for passphrase if you already defined
+Now only person can connect to you server who has your public/private key and passphrase</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3
+4</pre></td><td class="code"><pre>chmod 700 .ssh
+chmod 644 .ssh/authorized_keys
+<span class="nb">exit
+</span>ssh user1@X.Y.Z.Q<span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<h3 id="disable-password-logins">DISABLE PASSWORD LOGINS</h3>
+<p>You should also disable password logins to force ssh keys.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
+2
+3</pre></td><td class="code"><pre>sudo vi /etc/ssh/sshd_config
+  - change line to <span class="s2">"PasswordAuthentication no"</span>
+sudo systemctl restart ssh <span class="o">(</span>or sudo service ssh restart<span class="o">)</span><span class="w">
+</span></pre></td></tr></tbody></table></code></pre></figure>
+
+<p>Now your server has a user named ‘user1’ and this user’s keys are defined in your local machine. So you can connect your server by your local machine and no one else can do it.</p>
+
+		
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//utkusonmez-com.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2017 - Utku Sönmez</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+<script src="/js/quotes.js"></script>	
+
+
+	</div>
+</body>
+</html>

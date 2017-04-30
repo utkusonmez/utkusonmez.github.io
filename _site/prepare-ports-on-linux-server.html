@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Prepare ports on Linux Server</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic%7CSignika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+	
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/about" title="About me">About me</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://twitter.com/utkusnmz" target="_blank">@utkusnmz</a>
+<a href="https://www.linkedin.com/in/utkusonmez/" target="_blank">linkedin</a>
+<a href="https://github.com/utkusonmez" target="_blank">github</a>
+<a href="https://stackoverflow.com/users/1235354/utkusonmez" target="_blank">stackoverflow</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span id="quoteText" style="display: none;">
+
+	</span>
+
+	<span id="quoteAuthor" style="display: none;">
+
+	</span>
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<img src="/img/utku.png" alt="me">
+	  <h1> Utku Sönmez </h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Prepare ports on Linux Server</h2>		
+	<time datetime="2017-04-29T00:00:00+03:00" class="by-line">29 Apr 2017</time>
+	<div class="content">
+
+		<h3 id="ports-on-linux">PORTS ON LINUX</h3>
+
+<p>Default port numbers for common services on a server
+http  : 80
+https : 443
+ssh   : 22
+pop3  : 110
+ftp   : 21
+smtp  : 25</p>
+
+<h3 id="enable-ports">ENABLE PORTS</h3>
+<p>(if ufw not installed, ‘sudo apt-get install ufw’)
+$ sudo ufw status
+Status: inactive 
+(You block everything comming in)</p>
+
+<p>Deny incoming
+$ sudo ufw default deny incoming
+Default incoming policy changed to ‘deny’
+(be sure to update your rules accordingly)</p>
+
+<p>Allow everything outgoing
+$ sudo ufw default allow outgoing
+Default outgoing policy changed to ‘allow’
+(be sure to update your rules accordingly)</p>
+
+<p>Check status again
+$ sudo ufw status
+Status: inactive
+(You block everything comming in)
+If you activate it now, your server will be dead in water, inaccessible to us(including ssh)</p>
+
+<p>$ sudo ufw allow ssh
+Rules updated
+Rules updated (v6)
+(allow ssh)</p>
+
+<p>$ sudo ufw allow www
+Rules updated
+Rules updated (v6)
+(allow ports for simple web server)</p>
+
+<p>$ sudo ufw enable 
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+(enable ufw for port managing)</p>
+
+<p>$ sudo ufw status
+Status: active</p>
+
+<p>To                         Action      From
+–                         ——      —-
+22                         ALLOW       Anywhere                <br />
+80/tcp                     ALLOW       Anywhere                <br />
+22 (v6)                    ALLOW       Anywhere (v6)           <br />
+80/tcp (v6)                ALLOW       Anywhere (v6)           <br />
+(check status and list your allowed ports)</p>
+
+
+		
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//utkusonmez-com.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2017 - Utku Sönmez</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+<script src="/js/quotes.js"></script>	
+
+
+	</div>
+</body>
+</html>

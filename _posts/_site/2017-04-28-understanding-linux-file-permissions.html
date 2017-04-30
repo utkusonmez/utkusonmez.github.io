@@ -1,0 +1,67 @@
+<h1 id="linux-file-permissions">LINUX FILE PERMISSIONS</h1>
+
+<p>$ utku@scw-712067:~$ ls -al 
+total 48
+drwxr-xr-x 6 utku utku 4096 Apr 29 09:54 .
+drwxr-xr-x 3 root root 4096 Apr 23 20:05 ..
+-rw——- 1 utku utku  476 Apr 23 20:55 .bash_history
+-rw-r–r– 1 utku utku  220 Apr 23 20:05 .bash_logout
+-rw-r–r– 1 utku utku 3771 Apr 23 20:05 .bashrc
+drwx—— 2 utku utku 4096 Apr 23 20:06 .cache
+-rw——- 1 utku utku   43 Apr 23 20:21 .lesshst
+drwxrwxr-x 2 utku utku 4096 Apr 29 09:54 linux
+drwxrwxr-x 2 utku utku 4096 Apr 29 09:54 .nano
+-rw-r–r– 1 utku utku  655 Apr 23 20:05 .profile
+drwx—— 2 utku utku 4096 Apr 23 20:54 .ssh</p>
+
+<p>-rw-r–r– (let’s handle one of them)
+|
+V
+first letter means directory or file. d:directory -:file</p>
+
+<p>now we can seperate these permissions into 4 groups.</p>
+
+<ul>
+  <li>rw-     r–     r–
+directory or file  owner   group  everyone</li>
+</ul>
+
+<p>permissions  owner group        <br />
+drwxr-xr-x 3 root  root 4096 Apr 23 20:05 ..
+-rw-r–r– 1 utku  utku  655 Apr 23 20:05 .profile</p>
+
+<h2 id="octal-permissions">Octal Permissions</h2>
+
+<p>-rw-r–r– is equal to ‘644’ in octal permissions</p>
+
+<p>r = 4   w = 2   x = 1  - = 0</p>
+
+<p>rw- = 6
+r– = 4
+r– = 4</p>
+
+<p>-rwxrwxrwx  = 777
+drwxr-xr-x  = 755
+-rw——-  = 600</p>
+
+<p>$ ls -al ~
+…
+-rw——- 1 utku utku  476 Apr 23 20:55 .bash_history
+…</p>
+
+<p>This file’s owner and group are named ‘utku’.</p>
+
+<p>If we change group of file to ‘root’, utku user can still read file. Because owner has read access (rw-)</p>
+
+<p>$ sudo chgrp root .bash_history
+$ cat .bash_history</p>
+
+<p>But if we change owner of file to ‘root’, utku user cannot read that file. 
+$ sudo chown root .bash_history
+$ cat .bash_history 
+cat: .bash_history: Permission denied.</p>
+
+<p>(dont forget to revert owner and group back)
+$ sudo chgrp utku .bash_history
+$ sudo chown utku .bash_history</p>
+

@@ -1,0 +1,58 @@
+<h1 id="ports-on-linux">PORTS ON LINUX</h1>
+
+<p>Default port numbers for common services on a server
+http  : 80
+https : 443
+ssh   : 22
+pop3  : 110
+ftp   : 21
+smtp  : 25</p>
+
+<h1 id="enable-ports">ENABLE PORTS</h1>
+<p>(if ufw not installed, ‘sudo apt-get install ufw’)
+$ sudo ufw status
+Status: inactive 
+(You block everything comming in)</p>
+
+<p>Deny incoming
+$ sudo ufw default deny incoming
+Default incoming policy changed to ‘deny’
+(be sure to update your rules accordingly)</p>
+
+<p>Allow everything outgoing
+$ sudo ufw default allow outgoing
+Default outgoing policy changed to ‘allow’
+(be sure to update your rules accordingly)</p>
+
+<p>Check status again
+$ sudo ufw status
+Status: inactive
+(You block everything comming in)
+If you activate it now, your server will be dead in water, inaccessible to us(including ssh)</p>
+
+<p>$ sudo ufw allow ssh
+Rules updated
+Rules updated (v6)
+(allow ssh)</p>
+
+<p>$ sudo ufw allow www
+Rules updated
+Rules updated (v6)
+(allow ports for simple web server)</p>
+
+<p>$ sudo ufw enable 
+Command may disrupt existing ssh connections. Proceed with operation (y|n)? y
+Firewall is active and enabled on system startup
+(enable ufw for port managing)</p>
+
+<p>$ sudo ufw status
+Status: active</p>
+
+<p>To                         Action      From
+–                         ——      —-
+22                         ALLOW       Anywhere                <br />
+80/tcp                     ALLOW       Anywhere                <br />
+22 (v6)                    ALLOW       Anywhere (v6)           <br />
+80/tcp (v6)                ALLOW       Anywhere (v6)           <br />
+(check status and list your allowed ports)</p>
+

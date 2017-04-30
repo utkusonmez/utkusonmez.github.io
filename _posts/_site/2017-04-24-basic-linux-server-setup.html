@@ -1,0 +1,61 @@
+<h1 id="ssh-to-server-as-root-user">SSH TO SERVER AS ROOT USER</h1>
+<p>$ ssh root@X.Y.Z.Q</p>
+
+<h1 id="update">UPDATE</h1>
+<p>$ sudo apt-get update
+$ sudo apt-get upgrade</p>
+
+<h1 id="add-user-named-user1">ADD USER NAMED user1</h1>
+<p>$ sudo adduser user1
+    fill password and information about user</p>
+
+<h1 id="check-you-added-your-user-successfully">CHECK YOU ADDED YOUR USER SUCCESSFULLY</h1>
+<p>## exit and login as user1
+$ exit
+$ ssh user1@X.Y.Z.Q</p>
+
+<h1 id="check-your-users-sudo-rights">CHECK YOUR USER’S SUDO RIGHTS</h1>
+<p>$ sudo cat /etc/passwd
+  There will be a privilege problem and file will not be shown.</p>
+
+<p># GIVE SUDO RIGHTS
+$ ssh root@X.Y.Z.Q
+$ sudo nano /etc/sudoers.d/user1
+  user1 ALL=(ALL) NOPASSWD:ALL
+$ exit 
+$ ssh user1@X.Y.Z.Q
+$ sudo cat /etc/passwd</p>
+
+<h1 id="generate-ssh-key-to-be-more-secure">GENERATE SSH KEY TO BE MORE SECURE</h1>
+<h2 id="run-this-commands-on-your-local-machine">run this commands on your local machine</h2>
+<p>$ ssh-keygen -t rsa -b 4096 -C “user1@mail.com”</p>
+<ul>
+  <li>enter a passphrase to save your keys from other people</li>
+  <li>this command will generate two files -&gt;  public and private keys.
+$ pbcopy &lt; ~/.ssh/id_rsa.pub</li>
+  <li>copies your public key</li>
+</ul>
+
+<p>## now connect to your server as user1
+$ ssh user1@X.Y.Z.Q
+$ mkdir .ssh
+$ touch .ssh/authorized_keys
+$ vi .ssh/authorized_keys</p>
+<ul>
+  <li>paste your public key which you copied from local computer (pbcopy &lt; ~/.ssh/id_rsa.pub)</li>
+  <li>save and exit vi
+$ chmod 700 .ssh
+$ chmod 644 .ssh/authorized_keys
+$ exit
+$ ssh user1@X.Y.Z.Q</li>
+  <li>you will be asked for passphrase if you already defined</li>
+  <li>now only person can connect to you server who has your private key and passphrase</li>
+</ul>
+
+<h1 id="disable-password-logins">DISABLE PASSWORD LOGINS</h1>
+<p>$ sudo vi /etc/ssh/sshd_config</p>
+<ul>
+  <li>change line to “PasswordAuthentication no”
+$ sudo systemctl restart ssh (or sudo service ssh restart)</li>
+</ul>
+
