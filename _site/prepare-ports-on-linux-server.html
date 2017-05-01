@@ -114,81 +114,51 @@
 <h3 id="enable-ports">ENABLE PORTS</h3>
 <p>(if ufw not installed, ‘sudo apt-get install ufw’)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>sudo ufw status
-Status: inactive <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw status
+Status: inactive </code></pre></figure>
 
 <p>Deny incoming (You block everything comming in)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>sudo ufw default deny incoming
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw default deny incoming
 Default incoming policy changed to <span class="s1">'deny'</span>
-<span class="o">(</span>be sure to update your rules accordingly<span class="o">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="o">(</span>be sure to update your rules accordingly<span class="o">)</span></code></pre></figure>
 
 <p>Allow everything outgoing</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>sudo ufw default allow outgoing
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw default allow outgoing
 Default outgoing policy changed to <span class="s1">'allow'</span>
-<span class="o">(</span>be sure to update your rules accordingly<span class="o">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="o">(</span>be sure to update your rules accordingly<span class="o">)</span></code></pre></figure>
 
 <p>Check status again</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>sudo ufw status
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw status
 Status: inactive
-<span class="o">(</span>You block everything comming <span class="k">in</span><span class="o">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="o">(</span>You block everything comming <span class="k">in</span><span class="o">)</span></code></pre></figure>
 
 <p>If you activate ufw now, your server will be dead in water, inaccessible to us(including ssh)</p>
 
 <p>Allow ssh</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>sudo ufw allow ssh
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw allow ssh
 Rules updated
-Rules updated <span class="o">(</span>v6<span class="o">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+Rules updated <span class="o">(</span>v6<span class="o">)</span></code></pre></figure>
 
 <p>Allow :80 port. This default http server port.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>sudo ufw allow www
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw allow www
 Rules updated
-Rules updated <span class="o">(</span>v6<span class="o">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+Rules updated <span class="o">(</span>v6<span class="o">)</span></code></pre></figure>
 
 <p>Enable ufw</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4</pre></td><td class="code"><pre>sudo ufw <span class="nb">enable 
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw <span class="nb">enable 
 </span>Command may disrupt existing ssh connections. Proceed with operation <span class="o">(</span>y|n<span class="o">)</span>? y
 Firewall is active and enabled on system startup
-<span class="o">(</span><span class="nb">enable </span>ufw <span class="k">for </span>port managing<span class="o">)</span> <span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="o">(</span><span class="nb">enable </span>ufw <span class="k">for </span>port managing<span class="o">)</span> </code></pre></figure>
 
 <p>Check ufw status and permissions, maybe we did something wrong.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10</pre></td><td class="code"><pre>sudo ufw status
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw status
 Status: active
 
 To                         Action      From
@@ -197,8 +167,7 @@ To                         Action      From
 80/tcp                     ALLOW       Anywhere                  
 22 <span class="o">(</span>v6<span class="o">)</span>                    ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>             
 80/tcp <span class="o">(</span>v6<span class="o">)</span>                ALLOW       Anywhere <span class="o">(</span>v6<span class="o">)</span>             
-<span class="o">(</span>check status and list your allowed ports<span class="o">)</span><span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<span class="o">(</span>check status and list your allowed ports<span class="o">)</span></code></pre></figure>
 
 
 		

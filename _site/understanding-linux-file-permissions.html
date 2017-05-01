@@ -101,19 +101,7 @@
 
 <h3 id="linux-file-permissions">LINUX FILE PERMISSIONS</h3>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4
-5
-6
-7
-8
-9
-10
-11
-12
-13</pre></td><td class="code"><pre><span class="gp">utku@scw:~$ </span>ls -al 
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ls -al 
 total 48
 drwxr-xr-x 6 utku utku 4096 Apr 29 09:54 .
 drwxr-xr-x 3 root root 4096 Apr 23 20:05 ..
@@ -125,8 +113,7 @@ drwx------ 2 utku utku 4096 Apr 23 20:06 .cache
 drwxrwxr-x 2 utku utku 4096 Apr 29 09:54 linux
 drwxrwxr-x 2 utku utku 4096 Apr 29 09:54 .nano
 -rw-r--r-- 1 utku utku  655 Apr 23 20:05 .profile
-drwx------ 2 utku utku 4096 Apr 23 20:54 .ssh<span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+drwx------ 2 utku utku 4096 Apr 23 20:54 .ssh</code></pre></figure>
 
 <p>(-) rw-r–r– (let’s handle one of them)<br />
 (d) rwxrwxr-x</p>
@@ -159,39 +146,28 @@ r– = 4</p>
 drwxr-xr-x  = 755
 -rw——-  = 600</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3
-4</pre></td><td class="code"><pre>ls -al ~
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>ls -al ~
 ...
 -rw------- 1 utku utku  476 Apr 23 20:55 .bash_history
-...<span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+...</code></pre></figure>
 
 <p>This file’s owner and group are named ‘utku’.</p>
 
 <p>If we change group of file to ‘root’, utku user can still read file. Because owner has read access (rw-)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre>sudo chgrp root .bash_history
-cat .bash_history<span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo chgrp root .bash_history
+<span class="gp">$ </span>cat .bash_history</code></pre></figure>
 
 <p>But if we change owner of file to ‘root’, utku user cannot read that file.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2
-3</pre></td><td class="code"><pre>sudo chown root .bash_history
-cat .bash_history 
-cat: .bash_history: Permission denied.<span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo chown root .bash_history
+<span class="gp">$ </span>cat .bash_history 
+cat: .bash_history: Permission denied.</code></pre></figure>
 
 <p>(dont forget to revert owner and group back)</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><table style="border-spacing: 0"><tbody><tr><td class="gutter gl" style="text-align: right"><pre class="lineno">1
-2</pre></td><td class="code"><pre><span class="gp">$ </span>sudo chgrp utku .bash_history
-<span class="gp">$ </span>sudo chown utku .bash_history<span class="w">
-</span></pre></td></tr></tbody></table></code></pre></figure>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo chgrp utku .bash_history
+<span class="gp">$ </span>sudo chown utku .bash_history</code></pre></figure>
 
 
 		

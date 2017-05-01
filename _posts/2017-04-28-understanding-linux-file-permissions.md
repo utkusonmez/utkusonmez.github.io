@@ -9,8 +9,8 @@ To make your server more securely, you should give minimum rights to each user. 
 
 ### LINUX FILE PERMISSIONS
 
-{% highlight bash linenos %}
-utku@scw:~$ ls -al 
+{% highlight bash %}
+$ ls -al 
 total 48
 drwxr-xr-x 6 utku utku 4096 Apr 29 09:54 .
 drwxr-xr-x 3 root root 4096 Apr 23 20:05 ..
@@ -55,8 +55,8 @@ r-- = 4
 drwxr-xr-x  = 755
 -rw-------  = 600
 
-{% highlight bash linenos %}
-ls -al ~
+{% highlight bash %}
+$ ls -al ~
 ...
 -rw------- 1 utku utku  476 Apr 23 20:55 .bash_history
 ...
@@ -66,20 +66,20 @@ This file's owner and group are named 'utku'.
 
 If we change group of file to 'root', utku user can still read file. Because owner has read access (rw-)
 
-{% highlight bash linenos %}
-sudo chgrp root .bash_history
-cat .bash_history
+{% highlight bash %}
+$ sudo chgrp root .bash_history
+$ cat .bash_history
 {% endhighlight %}
 
 But if we change owner of file to 'root', utku user cannot read that file. 
-{% highlight bash linenos %}
-sudo chown root .bash_history
-cat .bash_history 
+{% highlight bash %}
+$ sudo chown root .bash_history
+$ cat .bash_history 
 cat: .bash_history: Permission denied.
 {% endhighlight %}
 
 (dont forget to revert owner and group back)
-{% highlight bash linenos %}
+{% highlight bash %}
 $ sudo chgrp utku .bash_history
 $ sudo chown utku .bash_history
 {% endhighlight %}

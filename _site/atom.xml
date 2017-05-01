@@ -4,12 +4,22 @@
  <title>Utku Sönmez</title>
  <link href="http://localhost:4000/atom.xml" rel="self"/>
  <id>http://localhost:4000</id>
- <updated>2017-04-30T11:45:20+03:00</updated>
+ <updated>2017-05-01T18:11:11+03:00</updated>
  <author>
    <name>Utku Sönmez</name>
    <uri>http://www.utkusonmez.com/</uri>
    <email>utkusnmz@gmail.com</email>
  </author>
+
+ 
+
+ <entry>
+   <title>Setup Nginx on Linux Server</title>
+   <link href="http://localhost:4000/setup-nginx-on-linux-server"/>
+   <id>http://localhost:4000/setup-nginx-on-linux-server</id>
+   <updated>2017-04-30T00:00:00+03:00</updated>
+   <content type="html">&lt;p&gt;Nginx is a web server, which can also be used as a reverse proxy, load balancer and HTTP cache. This blog is about how to setup nginx on Ubuntu.&lt;/p&gt; &lt;hr /&gt; &lt;h3 id=&quot;basic-setup-for-nginx&quot;&gt;Basic setup for Nginx&lt;/h3&gt; &lt;p&gt;Nginx is installed on default Linux repositories, so you can use apt-get to install...</content>
+ </entry>
 
  
 
@@ -28,7 +38,7 @@
    <link href="http://localhost:4000/understanding-linux-file-permissions"/>
    <id>http://localhost:4000/understanding-linux-file-permissions</id>
    <updated>2017-04-28T00:00:00+03:00</updated>
-   <content type="html">&lt;p&gt;To make your server more securely, you should give minimum rights to each user. In this blog, we try to tell how basic file permissions works on linux server and how octal permissions calculated.&lt;/p&gt; &lt;hr /&gt; &lt;h3 id=&quot;linux-file-permissions&quot;&gt;LINUX FILE PERMISSIONS&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot; style=&quot;text-align: right&quot;&gt;&lt;pre...</content>
+   <content type="html">&lt;p&gt;To make your server more securely, you should give minimum rights to each user. In this blog, we try to tell how basic file permissions works on linux server and how octal permissions calculated.&lt;/p&gt; &lt;hr /&gt; &lt;h3 id=&quot;linux-file-permissions&quot;&gt;LINUX FILE PERMISSIONS&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;gp&quot;&gt;$ &lt;/span&gt;ls -al total 48 drwxr-xr-x...</content>
  </entry>
 
  
@@ -71,7 +81,7 @@
    <link href="http://localhost:4000/publish-static-site-on-github-pages"/>
    <id>http://localhost:4000/publish-static-site-on-github-pages</id>
    <updated>2017-02-23T00:00:00+03:00</updated>
-   <content type="html">&lt;p&gt;You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.&lt;/p&gt; &lt;h3 id=&quot;deploy-your-site&quot;&gt;Deploy your site&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;table style=&quot;border-spacing: 0&quot;&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td class=&quot;gutter gl&quot;...</content>
+   <content type="html">&lt;p&gt;You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.&lt;/p&gt; &lt;h3 id=&quot;deploy-your-site&quot;&gt;Deploy your site&lt;/h3&gt; &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;git clone https://github.com/&lt;span class=&quot;sh&quot;&gt;&amp;lt;&amp;lt;username&amp;gt;&amp;gt;/&amp;lt;&amp;lt;username&amp;gt;&amp;gt;.github.io $...</content>
  </entry>
 
  

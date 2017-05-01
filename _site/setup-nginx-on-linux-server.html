@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!-- Meta -->
+	<meta charset="UTF-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+	<meta name="generator" content="Jekyll">
+
+	<title>Setup Nginx on Linux Server</title>
+
+	<!-- CSS & fonts -->
+	<link rel="stylesheet" href="/css/main.css">
+	<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,400italic%7CSignika:700,300,400,600' rel='stylesheet' type='text/css'>
+
+	<!-- RSS -->
+	<link href="/atom.xml" type="application/atom+xml" rel="alternate" title="ATOM Feed" />
+
+	
+
+</head>
+
+
+<body>
+	<div id="wrap">
+	  	
+	  	<!-- Navigation -->
+	  	<nav id="nav">
+	<div id="nav-list">
+		<a href="/">Home</a>
+
+		<!-- Nav pages -->
+	  
+	    
+	  
+	    
+	      <a href="/about" title="About me">About me</a>
+	    
+	  
+	    
+	  
+	    
+	  
+	    
+	  
+    
+    <!-- Nav links -->
+	  <a href="https://twitter.com/utkusnmz" target="_blank">@utkusnmz</a>
+<a href="https://www.linkedin.com/in/utkusonmez/" target="_blank">linkedin</a>
+<a href="https://github.com/utkusonmez" target="_blank">github</a>
+<a href="https://stackoverflow.com/users/1235354/utkusonmez" target="_blank">stackoverflow</a>
+
+	</div>
+  
+  <!-- Nav footer -->
+	
+	  <footer>
+	
+	<span id="quoteText" style="display: none;">
+
+	</span>
+
+	<span id="quoteAuthor" style="display: none;">
+
+	</span>
+</footer>
+	
+
+</nav>
+
+    
+    <!-- Icon menu -->
+	  <a id="nav-menu">
+	  	<div id="menu"></div>
+	  </a>
+
+      <!-- Header -->
+      
+        <header id="header">
+	<a href="/">
+		<img src="/img/utku.png" alt="me">
+	  <h1> Utku Sönmez </h1>
+	</a>
+</header>
+
+      
+
+    <!-- Main content -->
+	  <div id="container">
+		  
+		<main>
+
+			<article id="post-page">
+	<h2>Setup Nginx on Linux Server</h2>		
+	<time datetime="2017-04-30T00:00:00+03:00" class="by-line">30 Apr 2017</time>
+	<div class="content">
+
+		<p>Nginx is a web server, which can also be used as a reverse proxy, load balancer and HTTP cache. This blog is about how to setup nginx on Ubuntu.</p>
+
+<hr />
+
+<h3 id="basic-setup-for-nginx">Basic setup for Nginx</h3>
+
+<p>Nginx is installed on default Linux repositories, so you can use apt-get to install it.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo apt-get install nginx
+Reading package lists... Done
+Building dependency tree       
+Reading state information... Done
+The following additional packages will be installed:
+  fontconfig-config fonts-dejavu-core geoip-database libfontconfig1 libfreetype6 libgd3 libgeoip1 libicu55 libjbig0 libjpeg-turbo8 libjpeg8 libtiff5 libvpx3 libxml2 libxpm4
+  libxslt1.1 nginx-common nginx-core sgml-base xml-core
+Suggested packages:
+  libgd-tools geoip-bin fcgiwrap nginx-doc ssl-cert sgml-base-doc debhelper
+The following NEW packages will be installed:
+  fontconfig-config fonts-dejavu-core geoip-database libfontconfig1 libfreetype6 libgd3 libgeoip1 libicu55 libjbig0 libjpeg-turbo8 libjpeg8 libtiff5 libvpx3 libxml2 libxpm4
+  libxslt1.1 nginx nginx-common nginx-core sgml-base xml-core
+0 upgraded, 21 newly installed, 0 to remove and 10 not upgraded.
+Need to get 13.5 MB of archives.
+After this operation, 49.8 MB of additional disk space will be used.
+-- <span class="nb">type </span>Y 
+
+...</code></pre></figure>
+
+<p>Nginx installation installs Nginx apps to ufw.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw app list
+Available applications:
+  Nginx Full
+  Nginx HTTP
+  Nginx HTTPS
+  OpenSSH
+  mosh</code></pre></figure>
+
+<p>You can allow Nginx apps, they contain their configurations.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo ufw allow <span class="s1">'Nginx HTTP'</span>
+Rule added
+Rule added <span class="o">(</span>v6<span class="o">)</span>
+
+<span class="gp">$ </span>sudo ufw allow <span class="s1">'Nginx HTTPS'</span>
+Rule added
+Rule added <span class="o">(</span>v6<span class="o">)</span></code></pre></figure>
+
+<p>Check your Nginx service is running or not.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl status nginx
+● nginx.service - A high performance web server and a reverse proxy server
+   Loaded: loaded <span class="o">(</span>/lib/systemd/system/nginx.service; enabled; vendor preset: enabled<span class="o">)</span>
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Mon 2017-05-01 14:53:20 UTC; 2min 26s ago
+ Main PID: 8886 <span class="o">(</span>nginx<span class="o">)</span>
+   CGroup: /system.slice/nginx.service
+           ├─8886 nginx: master process /usr/sbin/nginx -g daemon on; master_process on
+           ├─8887 nginx: worker process                           
+           └─8888 nginx: worker process                           
+
+May 01 14:53:20 scw-712067 systemd[1]: Starting A high performance web server and a reverse proxy server...
+May 01 14:53:20 scw-712067 systemd[1]: Started A high performance web server and a reverse proxy server.</code></pre></figure>
+
+<p>It is running, type your ip on browser and see the Nginx default page.</p>
+
+<h3 id="managing-the-nginx-process">Managing the Nginx Process</h3>
+<p>We can manage the Nginx Web Server using the below command</p>
+
+<p>To stop the Nginx web server use below command</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl stop nginx</code></pre></figure>
+
+<p>To Start the Nginx Web Server use the below command</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl start nginx</code></pre></figure>
+
+<p>To restart the Nginx Web Server use the below command</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl restart nginx</code></pre></figure>
+
+<p>To load the configuration changes without droping the existing connections, we can use the below command</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl reload nginx</code></pre></figure>
+
+<p>To start / stop the Nginx web server at the boot time we can use the below commands</p>
+
+<p>To Start</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl <span class="nb">enable </span>nginx</code></pre></figure>
+
+<p>To Stop</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl disable nginx</code></pre></figure>
+
+
+		
+	<div id="disqus_thread"></div>
+	<script>
+
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//utkusonmez-com.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		
+	</div>
+</article>
+
+
+
+	  </main>
+		
+		  <!-- Pagination links -->
+      
+
+	  </div>
+	    
+	    <!-- Footer -->
+	    <footer><span>@2017 - Utku Sönmez</span></footer>
+
+	    <!-- Script -->
+      <script src="/js/main.js"></script>	
+<script src="/js/quotes.js"></script>	
+
+
+	</div>
+</body>
+</html>
