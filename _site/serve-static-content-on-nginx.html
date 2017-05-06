@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>Publish static site on github pages</title>
+	<title>Serve static content on Nginx</title>
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -93,35 +93,36 @@
 		<main>
 
 			<article id="post-page">
-	<h2>Publish static site on github pages</h2>		
-	<time datetime="2017-02-23T00:00:00+03:00" class="by-line">23 Feb 2017</time>
+	<h2>Serve static content on Nginx</h2>		
+	<time datetime="2017-05-01T00:00:00+03:00" class="by-line">01 May 2017</time>
 	<div class="content">
 
-		<p>You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.</p>
+		<p>This blog is about serving static content on Nginx.</p>
 
-<h3 id="deploy-your-site">Deploy your site</h3>
+<h3 id="configure-nginx-config-file">Configure Nginx config file</h3>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/<span class="sh">&lt;&lt;username&gt;&gt;/&lt;&lt;username&gt;&gt;.github.io
-$ cd username.github.io
-$ echo "Welcome to my static site" &gt; index.html
-$ git add --all
-$ git commit -m "Initial commit"
-</span><span class="err">$ git push -u origin master</span></code></pre></figure>
+<p>Nginx config file located under ‘/etc/nginx’ and you can check this link for full example of nginx configuration file. <a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/">Full example of nginx config file</a></p>
 
-<p>go to ‘«yourgithubusername».github.io’ and check your site.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo vi /etc/nginx/nginx.conf</code></pre></figure>
 
-<h3 id="also-serve-your-custom-domain">Also serve your custom domain</h3>
+<p>and add this under http tag.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"yourcustomdomain.com"</span> &gt; CNAME
-<span class="gp">$ </span>git add .
-<span class="gp">$ </span>git commit -m <span class="s2">"CNAME added"</span>
-<span class="gp">$ </span>git push</code></pre></figure>
+<p>server { # simple reverse-proxy
+  listen       80;
+  server_name  www.utkusonmez.com utkusonmez.com ;</p>
 
-<p>go to site, which you bought your domain, add a CNAME record like i mention below.</p>
+<p># serve static files
+  location /  {
+    root    /var/www/utkusonmez.com/;
+    expires 1m;
+  }
+}</p>
 
-<p>CNAME	www	«yourgithubusername».github.io	1 hour</p>
+<p>Reload your nginx config.</p>
 
-<p>Now you can check yourcustomdomain.com, it will be served under github pages.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl reload nginx</code></pre></figure>
+
+<p>and check your site.</p>
 
 		
 	<div id="disqus_thread"></div>

@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>Publish static site on github pages</title>
+	<title>Nginx downloads page configuration</title>
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -93,35 +93,47 @@
 		<main>
 
 			<article id="post-page">
-	<h2>Publish static site on github pages</h2>		
-	<time datetime="2017-02-23T00:00:00+03:00" class="by-line">23 Feb 2017</time>
+	<h2>Nginx downloads page configuration</h2>		
+	<time datetime="2017-05-06T00:00:00+03:00" class="by-line">06 May 2017</time>
 	<div class="content">
 
-		<p>You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest.</p>
+		<p>This blog is about how to configure a downloads page for static files and how to force for download</p>
 
-<h3 id="deploy-your-site">Deploy your site</h3>
+<h3 id="configure-nginx-config-file">Configure Nginx config file</h3>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">git clone https://github.com/<span class="sh">&lt;&lt;username&gt;&gt;/&lt;&lt;username&gt;&gt;.github.io
-$ cd username.github.io
-$ echo "Welcome to my static site" &gt; index.html
-$ git add --all
-$ git commit -m "Initial commit"
-</span><span class="err">$ git push -u origin master</span></code></pre></figure>
+<p>Nginx config file located under ‘/etc/nginx’ and you can check this link for full example of nginx configuration file. <a href="https://www.nginx.com/resources/wiki/start/topics/examples/full/">Full example of nginx config file</a></p>
 
-<p>go to ‘«yourgithubusername».github.io’ and check your site.</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo vi /etc/nginx/nginx.conf</code></pre></figure>
 
-<h3 id="also-serve-your-custom-domain">Also serve your custom domain</h3>
+<p>and add this under http tag.</p>
 
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span><span class="nb">echo</span> <span class="s2">"yourcustomdomain.com"</span> &gt; CNAME
-<span class="gp">$ </span>git add .
-<span class="gp">$ </span>git commit -m <span class="s2">"CNAME added"</span>
-<span class="gp">$ </span>git push</code></pre></figure>
+<figure class="highlight"><pre><code class="language-json" data-lang="json"><span class="err">server</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="err">simple</span><span class="w"> </span><span class="err">reverse-proxy</span><span class="w">
+  </span><span class="err">listen</span><span class="w">       </span><span class="err">80;</span><span class="w">
+  </span><span class="err">server_name</span><span class="w">  </span><span class="err">www.utkusonmez.com</span><span class="w"> </span><span class="err">utkusonmez.com</span><span class="w"> </span><span class="err">;</span><span class="w">
 
-<p>go to site, which you bought your domain, add a CNAME record like i mention below.</p>
+  </span><span class="err">location</span><span class="w"> </span><span class="err">~</span><span class="w"> </span><span class="err">^/downloads/(?&lt;request_basename&gt;(\w.))</span><span class="w"> </span><span class="err">{</span><span class="w">
+    </span><span class="err">root</span><span class="w"> </span><span class="err">/var/www/downloads/;</span><span class="w">
+    </span><span class="err">add_header</span><span class="w"> </span><span class="err">Content-Disposition</span><span class="w"> </span><span class="err">'attachment;</span><span class="w"> </span><span class="err">filename=</span><span class="nt">"$request_basename"</span><span class="err">';</span><span class="w">
+  </span><span class="err">}</span><span class="w">
+</span><span class="err">}</span></code></pre></figure>
 
-<p>CNAME	www	«yourgithubusername».github.io	1 hour</p>
+<p>make variable a path value (?<request_basename>(\w.))</request_basename></p>
 
-<p>Now you can check yourcustomdomain.com, it will be served under github pages.</p>
+<request_basename> is variable name
+(\w.) matching regex for alphanumeric and dot
+
+add_header : adds response header 
+
+Content-Disposition 'attachment; filename="$request_basename"' : force downloads
+
+Reload your nginx config.
+
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo systemctl reload nginx</code></pre></figure>
+
+
+and check your file.
+</request_basename>
 
 		
 	<div id="disqus_thread"></div>

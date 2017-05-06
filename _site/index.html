@@ -43,6 +43,8 @@
 	  
 	    
 	  
+	    
+	  
     
     <!-- Nav links -->
 	  <a href="https://twitter.com/utkusnmz" target="_blank">@utkusnmz</a>
@@ -96,6 +98,34 @@
 	
 
 	  <li class="post">
+	  	<h2><a href="/nginx-downloads-page-configuration">Nginx downloads page configuration</a></h2>
+	  	<time datetime="2017-05-06T00:00:00+03:00" class="by-line">06 May 2017</time>
+	  	<p>This blog is about how to configure a downloads page for static files and how to force for download Configure Nginx config file Nginx config file located under ‘/etc/nginx’ and you can check this link for full example of nginx configuration file. Full example of nginx config file $ sudo...</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/invalid-number-of-arguments-in-root-error">Invalid number of arguments in root error</a></h2>
+	  	<time datetime="2017-05-05T00:00:00+03:00" class="by-line">05 May 2017</time>
+	  	<p>If you get “invalid number of arguments in “root” directive in /etc/nginx/nginx.conf” error after you modify your nginx.conf file, you may forget a simple ‘;’.
+
+$ sudo tail -100f /var/log/nginx/error.log 
+2017/05/06 08:57:35 [emerg] 14757#14757: invalid number of arguments in "root" directive in /etc/nginx/nginx.conf:74
+</p>
+	  </li>
+
+    
+
+	  <li class="post">
+	  	<h2><a href="/serve-static-content-on-nginx">Serve static content on Nginx</a></h2>
+	  	<time datetime="2017-05-01T00:00:00+03:00" class="by-line">01 May 2017</time>
+	  	<p>This blog is about serving static content on Nginx. Configure Nginx config file Nginx config file located under ‘/etc/nginx’ and you can check this link for full example of nginx configuration file. Full example of nginx config file $ sudo vi /etc/nginx/nginx.conf and add this under http tag. server {...</p>
+	  </li>
+
+    
+
+	  <li class="post">
 	  	<h2><a href="/setup-nginx-on-linux-server">Setup Nginx on Linux Server</a></h2>
 	  	<time datetime="2017-04-30T00:00:00+03:00" class="by-line">30 Apr 2017</time>
 	  	<p>Nginx is a web server, which can also be used as a reverse proxy, load balancer and HTTP cache. This blog is about how to setup nginx on Ubuntu. Basic setup for Nginx Nginx is installed on default Linux repositories, so you can use apt-get to install it. $ sudo...</p>
@@ -138,33 +168,6 @@ Thank you!
 
     
 
-	  <li class="post">
-	  	<h2><a href="/blog-with-jekyll">Blog with Jekyll</a></h2>
-	  	<time datetime="2017-02-25T00:00:00+03:00" class="by-line">25 Feb 2017</time>
-	  	<p>First of all, we should define what jekyll is and what it does. It is a parsing engine bundled as a ruby gem used to build static websites from dynamic components such as templates, partials, liquid code, markdown, etc. Jekyll is known as “a simple, blog aware, static site generator”....</p>
-	  </li>
-
-    
-
-	  <li class="post">
-	  	<h2><a href="/publish-static-site-on-github-pages">Publish static site on github pages</a></h2>
-	  	<time datetime="2017-02-23T00:00:00+03:00" class="by-line">23 Feb 2017</time>
-	  	<p>You should add a new repo named ‘«yourgithubusername».github.io’. Then push your static site to this repo. When a request arrives, github will be looking for a file named index.html. Your index.html file will be served to your guest. Deploy your site git clone https://github.com/&lt;&lt;username&gt;&gt;/&lt;&lt;username&gt;&gt;.github.io $ cd username.github.io $ echo "Welcome...</p>
-	  </li>
-
-    
-
-	  <li class="post">
-	  	<h2><a href="/hello-blog">Hello blog!</a></h2>
-	  	<time datetime="2017-02-22T00:00:00+03:00" class="by-line">22 Feb 2017</time>
-	  	<p>This is my first entry, i will try to publish my experinces about coding and life.
-
-Enjoy!!
-</p>
-	  </li>
-
-    
-
 </ul>
 
 
@@ -172,6 +175,26 @@ Enjoy!!
 		
 		  <!-- Pagination links -->
       
+        <div class="pagination">
+          
+            <span class="page-item">&laquo;</span>
+          
+        
+          
+            
+              <span class="page-item">1</span>
+            
+          
+            
+              <a href="/page2/" class="page-item">2</a>
+            
+          
+        
+          
+            <a href="/page2/" class="page-item">&raquo;</a>
+          
+        </div>
+        
 
 	  </div>
 	    

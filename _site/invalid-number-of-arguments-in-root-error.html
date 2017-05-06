@@ -7,7 +7,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<meta name="generator" content="Jekyll">
 
-	<title>About me</title>
+	<title>Invalid number of arguments in root error</title>
 
 	<!-- CSS & fonts -->
 	<link rel="stylesheet" href="/css/main.css">
@@ -92,26 +92,43 @@
 		  
 		<main>
 
-			<article id="page">
-	
-  <h2 id="about">About</h2>
-<p>I am a software engineer in İstanbul. I am currently focussing on java, spring, postgres and functional programming at work. I really enjoy playing with other developing stuffs.</p>
+			<article id="post-page">
+	<h2>Invalid number of arguments in root error</h2>		
+	<time datetime="2017-05-05T00:00:00+03:00" class="by-line">05 May 2017</time>
+	<div class="content">
 
-<p>Here are links, you can learn me:</p>
+		<p>If you get “invalid number of arguments in “root” directive in /etc/nginx/nginx.conf” error after you modify your nginx.conf file, you may forget a simple ‘;’.</p>
 
-<ul>
-  <li><a href="https://www.linkedin.com/in/utkusonmez/">linkedin</a></li>
-  <li><a href="https://twitter.com/utkusnmz">twitter</a></li>
-  <li><a href="https://github.com/utkusonmez">github</a></li>
-  <li><a href="https://stackoverflow.com/users/1235354/utkusonmez">stackoverflow</a></li>
-</ul>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="gp">$ </span>sudo tail -100f /var/log/nginx/error.log 
+2017/05/06 08:57:35 <span class="o">[</span>emerg] 14757#14757: invalid number of arguments <span class="k">in</span> <span class="s2">"root"</span> directive <span class="k">in</span> /etc/nginx/nginx.conf:74</code></pre></figure>
 
-<html>
-	<br />
-</html>
+		
+	<div id="disqus_thread"></div>
+	<script>
 
-  
+	/**
+	*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+	*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+	/*
+	var disqus_config = function () {
+	this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+	this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+	};
+	*/
+	(function() { // DON'T EDIT BELOW THIS LINE
+	var d = document, s = d.createElement('script');
+	s.src = '//utkusonmez-com.disqus.com/embed.js';
+	s.setAttribute('data-timestamp', +new Date());
+	(d.head || d.body).appendChild(s);
+	})();
+	</script>
+	<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+		
+	</div>
 </article>
+
+
 
 	  </main>
 		
